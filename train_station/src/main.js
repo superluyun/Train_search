@@ -4,13 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import Router from 'vue-router'
 import index from './components/index'
+import result from './components/result'
 
 Vue.config.productionTip = false;
 Vue.use(Router);
 
 const routes = [
     {path:"/",component:index},
-
+    {path:"/result",component:result}
 ];
 
 const router = new Router({
