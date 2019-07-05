@@ -1,5 +1,13 @@
 <template>
     <div id="app">
+        <div class="layui-row">
+            <div class="layui-col-xs12">
+                <img src="../static/T.png" alt="CRH" width=15%>
+            </div>
+            <div class="layui-col-xs12">
+
+            </div>
+        </div>
     </div>
 </template>
 
