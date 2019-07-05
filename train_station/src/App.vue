@@ -5,7 +5,7 @@
                 <img src="../static/T.png" alt="CRH" width=15%>
             </div>
             <div class="layui-col-xs12">
-                
+                <router-view></router-view>
             </div>
         </div>
     </div>
