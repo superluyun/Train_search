@@ -12,8 +12,8 @@ Vue.use(Router);
 Vue.use(VueResource);
 
 const routes = [
-    {path:"/",component:index},
-    {path:"/result",component:result}
+    {path:"/",name:"index",component:index},
+    {path:"/result",name:"result",component:result}
 ];
 
 const router = new Router({

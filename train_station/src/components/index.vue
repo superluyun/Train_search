@@ -1,23 +1,27 @@
 <template>
     <div id="index">
-        <div class="layui-form sel">
+        <form class="layui-form sel">
             <div class="layui-form-item">
-                <select>
+                <select lay-search >
                     <option value="">请输入车站</option>
-                    <option  v-for="item in stations" :value="item" :key="item">{{item}}</option>
+                    <option  v-for="item in stations" :value="item" >{{item}}</option>
                 </select>
             </div>
-            <router-link to="/result"><button type="button" class="layui-btn self_btn">查询</button></router-link>
-        </div>
+            <a :href="URL"><button type="button" @click="Search" class="layui-btn self_btn">查询</button></a>
+        </form>
     </div>
 </template>
 
 <script>
+    import Bus from './Bus'
+    var sele = "";
     export default {
         name: "index",
         data(){
             return{
+                station:"",
                 stations:[],
+                URL:""
             }
         },
         mounted(){
@@ -25,9 +29,21 @@
                 this.stations = res.body;
             })
         },
+        methods:{
+            Search(){
+                Bus.$emit("City",sele);
+                this.URL = "/result?C="+sele+"";
+            }
+        }
     }
     layui.use('form', function(){
         var form = layui.form;
+        form.on('select()', function(data){
+        // console.log(data.elem); //得到select原始DOM对象
+        console.log(data.value); //得到被选中的值
+        sele = data.value;
+        // console.log(data.othis); //得到美化后的DOM对象
+        });
     });
 </script>
 

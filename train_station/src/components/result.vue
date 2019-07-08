@@ -15,7 +15,7 @@
                         <th lay-data="{field:'start_station_name'}">始发站</th>
                         <th lay-data="{field:'start_start_time'}">始发时间</th>
                         <th lay-data="{field:'end_station_name'}">终到站</th>
-<!--                        <th lay-data="{field:'end_arrive_time'">到达时间</th>-->
+                        <th lay-data="{field:'end_arrive_time'}">到达时间</th>
                     </tr>
                 </thead>
             </table>
@@ -25,15 +25,23 @@
 </template>
 
 <script>
+    import Bus from './Bus'
     export default {
         name: "result",
         mounted(){
-
+            Bus.$on("City",e=>{
+                alert(e);
+                this.city=e;
+            });
+            // console.log(this.$route.query.C);
+            this.city = this.$route.query.C;
+            this.url = "{url:'http://127.0.0.1:8000/api/city?city="+this.city+"'"+"}"
         },
         data(){
+            // var self = this;
             return{
-                url:'http://127.0.0.1:8000/api/city?city='+this.city,
-                city:""
+                city:"",
+                url:"",
             }
         }
     }

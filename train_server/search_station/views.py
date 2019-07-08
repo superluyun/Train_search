@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
-from selenium import webdriver
+# from selenium import webdriver
 import requests
 import ssl
 import re
@@ -10,7 +10,7 @@ requests.packages.urllib3.disable_warnings()
 
 # Create your views here.
 def stations(request):
-    stations = stationsList()[0:10]
+    stations = stationsList()
     jsonstr = json.dumps(stations)
     return HttpResponse(jsonstr)
 
