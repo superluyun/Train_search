@@ -5,9 +5,11 @@ import App from './App'
 import Router from 'vue-router'
 import index from './components/index'
 import result from './components/result'
+import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false;
 Vue.use(Router);
+Vue.use(VueResource);
 
 const routes = [
     {path:"/",component:index},

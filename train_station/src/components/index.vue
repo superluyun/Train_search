@@ -2,9 +2,9 @@
     <div id="index">
         <div class="layui-form sel">
             <div class="layui-form-item">
-                <select name="interest" lay-filter="aihao" lay-search>
+                <select>
                     <option value="">请输入车站</option>
-                    <option :value=i v-for="i in 30">{{i}}</option>
+                    <option  v-for="item in stations" :value="item" :key="item">{{item}}</option>
                 </select>
             </div>
             <router-link to="/result"><button type="button" class="layui-btn self_btn">查询</button></router-link>
@@ -14,12 +14,20 @@
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        data(){
+            return{
+                stations:[],
+            }
+        },
+        mounted(){
+            this.$http.get("http://127.0.0.1:8000/api/stations").then(res=>{
+                this.stations = res.body;
+            })
+        },
     }
     layui.use('form', function(){
         var form = layui.form;
-
-        //各种基于事件的操作，下面会有进一步介绍
     });
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <div id="main">
         <div id="table">
-            <table id="train_table" class="layui-table" lay-even>
+            <table id="train_table" :lay-data="url" class="layui-table" lay-even>
                 <colgroup>
                     <col width="40">
                     <col width="80">
@@ -15,7 +15,7 @@
                         <th lay-data="{field:'start_station_name'}">始发站</th>
                         <th lay-data="{field:'start_start_time'}">始发时间</th>
                         <th lay-data="{field:'end_station_name'}">终到站</th>
-                        <th lay-data="{field:'end_arrive_time'">到达时间</th>
+<!--                        <th lay-data="{field:'end_arrive_time'">到达时间</th>-->
                     </tr>
                 </thead>
             </table>
@@ -26,10 +26,19 @@
 
 <script>
     export default {
-        name: "result"
+        name: "result",
+        mounted(){
+
+        },
+        data(){
+            return{
+                url:'http://127.0.0.1:8000/api/city?city='+this.city,
+                city:""
+            }
+        }
     }
     layui.use('table', function(){
-        var table = layui.table;
+        // var table = layui.table;
         //第一个实例
     });
 </script>
