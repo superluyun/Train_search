@@ -11,11 +11,11 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th lay-data="{field:'id'}">车次</th>
-                        <th lay-data="{field:'username'}">始发站</th>
-                        <th lay-data="{field:'sex'}">始发时间</th>
-                        <th lay-data="{field:'city'}">终到站</th>
-                        <th lay-data="{field:'sign'">到达时间</th>
+                        <th lay-data="{field:'station_train_code'}">车次</th>
+                        <th lay-data="{field:'start_station_name'}">始发站</th>
+                        <th lay-data="{field:'start_start_time'}">始发时间</th>
+                        <th lay-data="{field:'end_station_name'}">终到站</th>
+                        <th lay-data="{field:'end_arrive_time'">到达时间</th>
                     </tr>
                 </thead>
             </table>
